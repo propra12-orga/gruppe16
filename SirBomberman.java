@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,8 +10,8 @@ public class SirBomberman implements KeyListener {
     public Block[][] block = new Block[11][11];
     public ImageIcon bomberman;
     public ImageIcon bombe;
-    public ImageIcon pic;
-    public ImageIcon pic2;
+    public ImageIcon unbreakablefield;
+    public ImageIcon field;
     public ImageIcon finpic;
     public ImageIcon explo;
     public ImageIcon bombermanu;
@@ -52,28 +53,25 @@ public class SirBomberman implements KeyListener {
         panel.setLayout(new GridLayout(11,11));
         int i;        
         
-        pic = new ImageIcon( "unbreakable.png" );
-        pic2 = new ImageIcon( "field.png" );
-        explo = new ImageIcon( "explosion.png" ); 
-        finpic = new ImageIcon( "end field.png" );
-        bomberman = new ImageIcon( "bomberman standard.png" );
-        bombermanu = new ImageIcon( "bomberman standard.png" );
-        bombermano = new ImageIcon( "bomberman rücken.png" );
-        bombermanl = new ImageIcon( "bomberman linksradikal.png" );
-        bombermanr = new ImageIcon( "bomberman rechtsradikal.png" );
-        bombermanu2 = new ImageIcon( "2bomberman standard.png" );
-        bombermano2 = new ImageIcon( "2bomberman rücken.png" );
-        bombermanl2 = new ImageIcon( "2bomberman linksradikal.png" );
-        bombermanr2 = new ImageIcon( "2bomberman rechtsradikal.png" );
-
-        
-        
-        bombe = new ImageIcon( "bombe.png" );
+        unbreakablefield = new ImageIcon( "img/unbreakable.png" );
+        field = new ImageIcon( "img/field.png" );
+        explo = new ImageIcon( "img/explosion.png" ); 
+        finpic = new ImageIcon( "img/end field.png" );
+        bomberman = new ImageIcon( "img/bomberman standard.png" );
+        bombermanu = new ImageIcon( "img/bomberman standard.png" );
+        bombermano = new ImageIcon( "img/bomberman rücken.png" );
+        bombermanl = new ImageIcon( "img/bomberman links.png" );
+        bombermanr = new ImageIcon( "img/bomberman rechts.png" );
+        bombermanu2 = new ImageIcon( "img/2bomberman standard.png" );
+        bombermano2 = new ImageIcon( "img/2bomberman rücken.png" );
+        bombermanl2 = new ImageIcon( "img/2bomberman links.png" );
+        bombermanr2 = new ImageIcon( "img/2bomberman rechts.png" );       
+        bombe = new ImageIcon( "img/bombe.png" );
         
          for(i=0; i <= 10; i++){
              for(int j=0; j <= 10; j++){
                      if(i == 0 || i == 10 || j == 0 || j == 10 || (i%2 == 0 && j%2 == 0)){
-                         block[i][j] = new  Block(pic);
+                         block[i][j] = new  Block(unbreakablefield);
                          block[i][j].destroyable = false;
                          block[i][j].walkable = false;
                          block[i][j].fin = false;
@@ -88,7 +86,7 @@ public class SirBomberman implements KeyListener {
                          panel.add(block[i][j]);                            
                      }
                      else {
-                         block[i][j] = new Block(pic2);
+                         block[i][j] = new Block(field);
                          block[i][j].destroyable = true;
                          block[i][j].walkable = true;
                          block[i][j].fin = false;
@@ -103,8 +101,8 @@ public class SirBomberman implements KeyListener {
     }
     
     public static void main(String[] args) {
-        SirBomberman bombe = new SirBomberman();
-        bombe.launchFrame();
+        SirBomberman Game = new SirBomberman();
+        Game.launchFrame();
     }
     	class explosion extends TimerTask {
 		public void run() {
@@ -158,7 +156,7 @@ public class SirBomberman implements KeyListener {
 			neuy=y;
 		}
 		public void run() {
-		block[neux][neuy].setIcon(pic2);
+		block[neux][neuy].setIcon(field);
 		}
 	}
 	
@@ -173,7 +171,7 @@ public class SirBomberman implements KeyListener {
     			baktiv=false;
     		}
     		else {
-    			block[bombix][bombiy].setIcon(pic2);
+    			block[bombix][bombiy].setIcon(field);
     		}
     		bombiy++;
     		block[bombix][bombiy].setIcon(bombermanr);
@@ -186,7 +184,7 @@ public class SirBomberman implements KeyListener {
 
     		}
     		else {
-    			block[bombix][bombiy].setIcon(pic2);
+    			block[bombix][bombiy].setIcon(field);
     		}
     		bombiy--;
     		block[bombix][bombiy].setIcon(bombermanl);
@@ -199,7 +197,7 @@ public class SirBomberman implements KeyListener {
 
     		}
     		else {
-    			block[bombix][bombiy].setIcon(pic2);
+    			block[bombix][bombiy].setIcon(field);
     		}
     		bombix--;
     		block[bombix][bombiy].setIcon(bombermano);
@@ -212,7 +210,7 @@ public class SirBomberman implements KeyListener {
 
     		}
     		else {
-    			block[bombix][bombiy].setIcon(pic2);
+    			block[bombix][bombiy].setIcon(field);
     		}
     		bombix++;
     		block[bombix][bombiy].setIcon(bombermanu);
@@ -254,7 +252,7 @@ public class SirBomberman implements KeyListener {
     }
     
     public void beende_spiel() {
-        end_game = new ImageIcon( "ENDGAME.png" );
+        end_game = new ImageIcon( "img/ENDGAME.png" );
         panel.removeAll();
         JLabel endlabel = new JLabel(end_game);
         JPanel endpanel = new JPanel();
