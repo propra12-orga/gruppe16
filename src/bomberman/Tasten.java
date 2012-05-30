@@ -16,7 +16,7 @@ public class Tasten {
 
 	    	lf.input=e.getKeyCode();
 	        System.out.println(lf.input);
-	        
+	        if(lf.spielende==false){
 	        if(lf.input==39 && lf.block[lf.bombix][lf.bombiy+1].walkable==true) { //rechts
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
@@ -79,6 +79,7 @@ public class Tasten {
 	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);   
 	    	    		lf.timer.schedule(new Explosion(lf), 3000);  	
 	    	    	}
+	        }
 
 	        // SPIEL ENDE?
 	        if (lf.spielende==true && lf.input==78) {System.exit(0);}

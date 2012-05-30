@@ -1,27 +1,33 @@
 package bomberman;
 
-import javax.swing.ImageIcon;
+import java.util.TimerTask;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Ende {
-public LaunchFrame lf;
-public String sf;
-public void spielende(LaunchFrame la, String st){
+public class Ende extends TimerTask {
+	public LaunchFrame lf;
+	public String sf;
+
+public Ende(LaunchFrame la, String st){
 	lf=la;
 	sf=st;
+}
+public void run(){
     if (lf.spielende==true){
-    	if(sf.equals("treppe")){
-    		lf.end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME.png" ));
-    	}
-    	else if(sf.equals("bombe")){
-    		lf.end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME-bombe.png" ));
-    	}
 
     	lf.panel.removeAll();
-        JLabel endlabel = new JLabel(lf.end_game);
+        JLabel endlabel = new JLabel();
         JPanel endpanel = new JPanel();
-        endlabel.setIcon(lf.end_game);
+    	if(sf.equals("bombe")){
+            endlabel.setIcon(lf.end_bombe);
+    	}
+    	else if(sf.equals("treppe")){
+            endlabel.setIcon(lf.end_game);
+    	}
+
+
+
         endpanel.add(endlabel);
         lf.frame.add(endpanel);
         lf.frame.validate();

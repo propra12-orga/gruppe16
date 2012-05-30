@@ -13,6 +13,7 @@ public class LaunchFrame {
     public Block[][] block = new Block[11][11];
     public ImageIcon bomberman;
     public ImageIcon bombe;
+    public ImageIcon tot;
     public ImageIcon unbreakablefield;
     public ImageIcon field;
     public ImageIcon finpic;
@@ -26,6 +27,7 @@ public class LaunchFrame {
     public ImageIcon bombermano2;
     public ImageIcon bombermanl2;
     public ImageIcon end_game;
+    public ImageIcon end_bombe;
 	public int bombix; //position x von bomberman
 	public int bombiy; //position y von bomberman
 	public int bombex; //position x von bombe
@@ -47,6 +49,7 @@ public LaunchFrame() {
     field = new ImageIcon(  this.getClass().getResource("/dateien/field.png" ));
     explo = new ImageIcon(  this.getClass().getResource("/dateien/explosion.png" )); 
     finpic = new ImageIcon(  this.getClass().getResource("/dateien/end field.png") );
+    tot = new ImageIcon(  this.getClass().getResource("/dateien/tot.png" ));
     bomberman = new ImageIcon(  this.getClass().getResource("/dateien/bomberman standard.png" ));
     bombermanu = new ImageIcon(  this.getClass().getResource("/dateien/bomberman standard.png" ));
     bombermano = new ImageIcon(  this.getClass().getResource("/dateien/bomberman rücken.png" ));
@@ -55,7 +58,10 @@ public LaunchFrame() {
     bombermanu2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman standard.png" ));
     bombermano2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rücken.png" ));
     bombermanl2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman links.png" ));
-    bombermanr2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rechts.png" ));       
+    bombermanr2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rechts.png" ));   
+	end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME.png" ));
+	end_bombe = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME-bombe.png" ));
+
     bombe = new ImageIcon(  this.getClass().getResource("/dateien/bombe.png" ));
 }
 public void spielfeld_malen(LaunchFrame la){
