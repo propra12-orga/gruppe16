@@ -13,5 +13,7 @@ class Loeschen extends TimerTask {
 		}
 		public void run() {    		
 			lf.block[neux][neuy].setIcon(lf.field);
+			lf.block[neux][neuy].walkable=true;
+			lf.exploaktiv[neux][neuy]=false;
 	}
 }

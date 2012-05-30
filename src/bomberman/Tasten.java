@@ -20,6 +20,7 @@ public class Tasten {
 	        if(lf.input==39 && lf.block[lf.bombix][lf.bombiy+1].walkable==true) { //rechts
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
+	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
 	    			lf.baktiv=false;
 	    		}
 	    		else {
@@ -32,6 +33,7 @@ public class Tasten {
 	        if(lf.input==37 && lf.block[lf.bombix][lf.bombiy-1].walkable==true) { //links
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
+	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
 	    			lf.baktiv=false;
 
 	    		}
@@ -45,6 +47,7 @@ public class Tasten {
 	        if(lf.input==38 && lf.block[lf.bombix-1][lf.bombiy].walkable==true) { //oben
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
+	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
 	    			lf.baktiv=false;
 
 	    		}
@@ -58,6 +61,7 @@ public class Tasten {
 	        if(lf.input==40 && lf.block[lf.bombix+1][lf.bombiy].walkable==true) { //unten
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
+	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
 	    			lf.baktiv=false;
 
 	    		}
@@ -68,12 +72,11 @@ public class Tasten {
 	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermanu);
 	    		ch.check(lf);
 	    	}
-	    	    	if(lf.input==32 && lf.gesperrt==false) { //wenn leerzeichen gedrückt
+	    	    	if(lf.input==32) { //wenn leerzeichen gedrückt
 	    	    		lf.bombex = lf.bombix;
 	    	    		lf.bombey = lf.bombiy; // das muss hier hin, damit die explosion nicht "mitläuft"
 	    	    		lf.baktiv = true;
 	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);   
-	    	    		lf.gesperrt =true; 
 	    	    		lf.timer.schedule(new Explosion(lf), 3000);  	
 	    	    	}
 

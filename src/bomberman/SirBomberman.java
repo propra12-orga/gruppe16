@@ -5,7 +5,6 @@ import javax.swing.*;
 import bomberman.LaunchFrame;
 public class SirBomberman implements KeyListener {
 	public LaunchFrame lf = new LaunchFrame();
-
 	
 	public static void main(String[] args) {
 		/* erstelle Instanz von SirBomberman */

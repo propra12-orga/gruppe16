@@ -1,26 +1,22 @@
 package bomberman;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Check {
 	private LaunchFrame lf;
-	
+   public Ende end = new Ende();
+
     public void check(LaunchFrame la) {
     	lf=la;
         if (lf.block[lf.bombix][lf.bombiy].fin == true) lf.spielende=true;
         System.out.println(lf.block[lf.bombix][lf.bombiy].fin);
-        if (lf.spielende==true){
-        	lf.end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME.png" ));
-        	lf.panel.removeAll();
-            JLabel endlabel = new JLabel(lf.end_game);
-            JPanel endpanel = new JPanel();
-            endlabel.setIcon(lf.end_game);
-            endpanel.add(endlabel);
-            lf.frame.add(endpanel);
-            lf.frame.validate();
-        }
+        end.spielende(lf, "treppe");
+    		if(lf.exploaktiv[lf.bombix][lf.bombiy]!=null && lf.exploaktiv[lf.bombix][lf.bombiy]==true) {
+    			System.out.println("In Explosion gelaufen.");
+    			lf.spielende=true;
+    			end.spielende(lf, "bombe");
+    		}
     }
+    
+    
 
 }

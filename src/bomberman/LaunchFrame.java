@@ -26,14 +26,14 @@ public class LaunchFrame {
     public ImageIcon bombermano2;
     public ImageIcon bombermanl2;
     public ImageIcon end_game;
-	public int bombix;
-	public int bombiy;
-	public int bombex;
-	public int bombey;
+	public int bombix; //position x von bomberman
+	public int bombiy; //position y von bomberman
+	public int bombex; //position x von bombe
+	public int bombey; //position y von bombe
 	public int x;
 	public int y;
 	public Boolean baktiv =false;
-	public Boolean gesperrt=false;
+	public Boolean[][] exploaktiv = new Boolean[11][11];
 	public Timer timer = new Timer();
     public int input;
     public Boolean spielende=false;
