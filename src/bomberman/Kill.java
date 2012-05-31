@@ -15,10 +15,8 @@ public class Kill {
 		{	System.out.println("Bei Bombe stehengeblieben.");
 		lf.block[lf.bombix][lf.bombiy].setIcon(lf.tot);
 			lf.spielende=true;
-			lf.timer.cancel();
+			lf.timer.cancel(); //explosionstimer canceln, damit die volle sekunde das kreuz angezeigt wird
 			lf.timer = new Timer();
-			lf.timer.schedule(new Ende(lf, "bombe"), 1000);
-
 			lf.timer.schedule(new Ende(lf, "bombe"), 1000);
 			}
 		// todo: wenn player in bombe läuft

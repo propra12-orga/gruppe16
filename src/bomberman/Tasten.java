@@ -1,6 +1,7 @@
 package bomberman;
 
 import java.awt.event.KeyEvent;
+import java.util.Timer;
 
 public class Tasten {
 	public LaunchFrame lf;
@@ -16,7 +17,7 @@ public class Tasten {
 
 	    	lf.input=e.getKeyCode();
 	        System.out.println(lf.input);
-	        if(lf.spielende==false){
+	        if(lf.spielende==false){ // darf man noch laufen?
 	        if(lf.input==39 && lf.block[lf.bombix][lf.bombiy+1].walkable==true) { //rechts
 	    		if(lf.baktiv==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
@@ -72,12 +73,14 @@ public class Tasten {
 	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermanu);
 	    		ch.check(lf);
 	    	}
-	    	    	if(lf.input==32) { //wenn leerzeichen gedrückt
+	    	    	if(lf.input==32) { // BOMBE wenn leerzeichen gedrückt
+	    	    		lf.timer = new Timer();
 	    	    		lf.bombex = lf.bombix;
 	    	    		lf.bombey = lf.bombiy; // das muss hier hin, damit die explosion nicht "mitläuft"
 	    	    		lf.baktiv = true;
-	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);   
-	    	    		lf.timer.schedule(new Explosion(lf), 3000);  	
+	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);  //icon bombi+bombe im hintergrund 
+	    	    		lf.block[lf.bombix][lf.bombiy].bombe=true;
+	    	    		lf.timer.schedule(new Explosion(lf,lf.bombex,lf.bombey), 3000);  	
 	    	    	}
 	        }
 

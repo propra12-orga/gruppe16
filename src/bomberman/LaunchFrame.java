@@ -36,7 +36,8 @@ public class LaunchFrame {
 	public int y;
 	public Boolean baktiv =false;
 	public Boolean[][] exploaktiv = new Boolean[11][11];
-	public Timer timer = new Timer();
+	public Timer timer;
+	public Timer timer2 = new Timer();
     public int input;
     public Boolean spielende=false;
 	int i;      
@@ -80,6 +81,7 @@ public void spielfeld_malen(LaunchFrame la){
                      lf.block[i][j].destroyable = false;
                      lf.block[i][j].walkable = false;
                      lf.block[i][j].fin = false;
+                     lf.block[i][j].bombe = false;
                      lf.panel.add(lf.block[i][j]);             
                      }
                 
@@ -89,6 +91,7 @@ public void spielfeld_malen(LaunchFrame la){
                      lf.block[i][j].destroyable = false;
                      lf.block[i][j].walkable = true;
                      lf.block[i][j].fin = true;
+                     lf.block[i][j].bombe = false;
                      lf.panel.add(lf.block[i][j]);                            
                  }
                  else {
@@ -97,6 +100,7 @@ public void spielfeld_malen(LaunchFrame la){
                      lf.block[i][j].destroyable = true;
                      lf.block[i][j].walkable = true;
                      lf.block[i][j].fin = false;
+                     lf.block[i][j].bombe = false;
                      lf.panel.add(lf.block[i][j]);
                  }
          }

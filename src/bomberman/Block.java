@@ -11,6 +11,8 @@ public class Block extends JLabel {
 	public boolean walkable;
     public boolean destroyable ;
     public boolean fin;
+    public boolean bombe;
+
     
     
     public Block(ImageIcon imageicon){
