@@ -1,7 +1,6 @@
 package bomberman;
 
-
-import javax.swing.ImageIcon;
+import java.util.Timer;
 
 public class Kill {
 	LaunchFrame lf;
@@ -13,18 +12,14 @@ public class Kill {
 		ey = y;
 		lf = la;
 		if(lf.exploaktiv[ex][ey]==true && lf.bombix==ex && lf.bombiy==ey) // wenn player bei explosion dort steht
-		{	
-
-			System.out.println("Bei Bombe stehengeblieben.");
-  		   ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
-
-		lf.block[lf.bombix][lf.bombiy].setIcon(tot);
+		{	System.out.println("Bei Bombe stehengeblieben.");
+		lf.block[lf.bombix][lf.bombiy].setIcon(lf.tot);
 			lf.spielende=true;
 			//lf.timer.cancel(); //explosionstimer canceln, damit die volle sekunde das kreuz angezeigt wird
 			/*lf.timer = new Timer();
 			lf.timer.schedule(new Ende(lf, "bombe"), 1000);*/
-			Ende el = new Ende(lf, "bombe");
-			el.start();
+			Timer finish = new Timer();
+			finish.schedule(new Ende(lf, "bombe"), 1000);
 			}
 		// todo: wenn player in bombe läuft
 	}

@@ -1,6 +1,7 @@
 package bomberman;
 
 import java.awt.event.KeyEvent;
+import java.util.Timer;
 
 public class Tasten {
 	public LaunchFrame lf;
@@ -79,24 +80,20 @@ public class Tasten {
 	    	    		lf.baktiv = true;
 	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);  //icon bombi+bombe im hintergrund 
 	    	    		lf.block[lf.bombix][lf.bombiy].bombe=true;
-	    	    		/*lf.timer[lf.bombex][lf.bombey] = new Timer();*/
-	    	    		/*lf.timer[lf.bombex][lf.bombey].schedule(*/
-	    	    		Explosion explos = new Explosion(lf,lf.bombex,lf.bombey);
-	    	    		explos.start();
+	    	    		lf.timer[lf.bombex][lf.bombey] = new Timer();
+	    	    		lf.timer[lf.bombex][lf.bombey].schedule(new Explosion(lf,lf.bombex,lf.bombey), 3000);
 	    	    	}
 	        }
 
 	        // SPIEL ENDE?
 	        if (lf.spielende==true && lf.input==78) {System.exit(0);}
 	        else if (lf.spielende==true && lf.input==89) 
-	        { 
-	        	/*
-	        	for (int k=0; k<=10; k++){
+	        {	for (int k=0; k<=10; k++){
 	        		for (int l=0; l<=10; l++){
-	        				if(lf.timer[k][l]!=null){lf.timer[k][l].cancel();}
-	        				if(lf.timer2[k][l]!=null){lf.timer2[k][l].cancel();}
+	        	if(lf.timer[k][l]!=null){lf.timer[k][l].cancel();}
+	        	if(lf.timer2[k][l]!=null){lf.timer2[k][l].cancel();}
 	        		}
-	        		}*/
+	        		}
 	        	
 	        	lf.frame.dispose();SirBomberman bombe = new SirBomberman();bombe.launchFrame(); lf.spielende=false;}
 	    }
