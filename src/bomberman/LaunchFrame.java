@@ -53,11 +53,11 @@ public LaunchFrame() {
     finpic = new ImageIcon(  this.getClass().getResource("/dateien/end field.png") );
     bomberman = new ImageIcon(  this.getClass().getResource("/dateien/bomberman standard.png" ));
     bombermanu = new ImageIcon(  this.getClass().getResource("/dateien/bomberman standard.png" ));
-    bombermano = new ImageIcon(  this.getClass().getResource("/dateien/bomberman rücken.png" ));
+    bombermano = new ImageIcon(  this.getClass().getResource("/dateien/bomberman ruecken.png" ));
     bombermanl = new ImageIcon(  this.getClass().getResource("/dateien/bomberman links.png" ));
     bombermanr = new ImageIcon(  this.getClass().getResource("/dateien/bomberman rechts.png" ));
     bombermanu2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman standard.png" ));
-    bombermano2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rücken.png" ));
+    bombermano2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman ruecken.png" ));
     bombermanl2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman links.png" ));
     bombermanr2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rechts.png" ));   
 	end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME.png" ));
