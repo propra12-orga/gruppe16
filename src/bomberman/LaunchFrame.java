@@ -14,6 +14,7 @@ public class LaunchFrame {
     public ImageIcon bombe;
     public ImageIcon tot;
     public ImageIcon unbreakablefield;
+    public ImageIcon breakablefield;
     public ImageIcon field;
     public ImageIcon finpic;
     public ImageIcon explo;
@@ -47,6 +48,7 @@ public LaunchFrame() {
     bombix = 1;
     bombiy = 1;
     unbreakablefield = new ImageIcon( this.getClass().getResource("/dateien/unbreakable.png"));
+    breakablefield = new ImageIcon( this.getClass().getResource("/dateien/breakable.png"));
     field = new ImageIcon(  this.getClass().getResource("/dateien/field.png" ));
     explo = new ImageIcon(  this.getClass().getResource("/dateien/explosion.png" )); 
     finpic = new ImageIcon(  this.getClass().getResource("/dateien/end field.png") );
@@ -94,8 +96,10 @@ public void spielfeld_malen(LaunchFrame la){
                      lf.block[i][j].bombe = false;
                      lf.panel.add(lf.block[i][j]);                            
                  }
-                 else {
+
+                 else if((i==2 && j==1) || (i==1 && j==1) || (i==1 && j ==2)) {
                 	 /* laufbares Feld zeichnen */
+                	 System.out.println("feld auf " +i+"|"+j+" gezeichnet.");
                      lf.block[i][j] = new Block(lf.field);
                      lf.block[i][j].destroyable = true;
                      lf.block[i][j].walkable = true;
@@ -103,6 +107,16 @@ public void spielfeld_malen(LaunchFrame la){
                      lf.block[i][j].bombe = false;
                      lf.panel.add(lf.block[i][j]);
                  }
+                 else {
+                	 /* zerstšrbarer Block */
+                     lf.block[i][j] = new Block(lf.breakablefield);
+                     lf.block[i][j].destroyable = true;
+                     lf.block[i][j].walkable = false;
+                     lf.block[i][j].fin = false;
+                     lf.block[i][j].bombe = false;
+                     lf.panel.add(lf.block[i][j]);                            
+                 }
+
          }
  }   
 	 /* Bomberman aufs Spielfeld setzen: */

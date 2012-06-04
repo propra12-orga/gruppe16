@@ -13,12 +13,13 @@ public Ende(LaunchFrame la, String st){
 }
 public void run(){
     if (lf.spielende==true){
+    	if(sf.equals("bombe")){
     	try {
 			Thread.sleep(800);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}}
     	lf.panel.removeAll();
         JLabel endlabel = new JLabel();
         JPanel endpanel = new JPanel();
