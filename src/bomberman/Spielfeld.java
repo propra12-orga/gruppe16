@@ -70,7 +70,7 @@ public class Spielfeld {
    		lf.block[sx][sy].bombe = false;
    		lf.panel.add(lf.block[sx][sy]);             
    		break;
-   	case '3': //breakable feld
+   	case '2': //breakable feld
    		lf.block[sx][sy] = new  Block(lf.breakablefield);
    		lf.block[sx][sy].destroyable = true;
    		lf.block[sx][sy].walkable = false;
@@ -78,7 +78,7 @@ public class Spielfeld {
    		lf.block[sx][sy].bombe = false;
    		lf.panel.add(lf.block[sx][sy]);             
    		break;
-   	case 'f': //breakable feld
+   	case 'f': //zielfeld
    		lf.block[sx][sy] = new  Block(lf.finpic);
    		lf.block[sx][sy].destroyable = false;
    		lf.block[sx][sy].walkable = true;
