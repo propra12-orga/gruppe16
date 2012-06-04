@@ -1,7 +1,6 @@
 package bomberman;
 
 import java.awt.GridLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -74,51 +73,10 @@ public void spielfeld_malen(LaunchFrame la){
      lf.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      lf.frame.setSize(660, 660);
      lf.panel.setLayout(new GridLayout(11,11));        
-
-	 for(i=0; i <= 10; i++){
-         for(int j=0; j <= 10; j++){
-                 if(i == 0 || i == 10 || j == 0 || j == 10 || (i%2 == 0 && j%2 == 0)){
-                     /* nicht zerstšrbare Blšcke zeichnen */
-                	 lf.block[i][j] = new  Block(lf.unbreakablefield);
-                     lf.block[i][j].destroyable = false;
-                     lf.block[i][j].walkable = false;
-                     lf.block[i][j].fin = false;
-                     lf.block[i][j].bombe = false;
-                     lf.panel.add(lf.block[i][j]);             
-                     }
-                
-                 else if(i == 5 && j == 5){
-                	 /* Ausgang zeichnen */
-                     lf.block[i][j] = new Block(lf.finpic);
-                     lf.block[i][j].destroyable = false;
-                     lf.block[i][j].walkable = true;
-                     lf.block[i][j].fin = true;
-                     lf.block[i][j].bombe = false;
-                     lf.panel.add(lf.block[i][j]);                            
-                 }
-
-                 else if((i==2 && j==1) || (i==1 && j==1) || (i==1 && j ==2)) {
-                	 /* laufbares Feld zeichnen */
-                	 System.out.println("feld auf " +i+"|"+j+" gezeichnet.");
-                     lf.block[i][j] = new Block(lf.field);
-                     lf.block[i][j].destroyable = true;
-                     lf.block[i][j].walkable = true;
-                     lf.block[i][j].fin = false;
-                     lf.block[i][j].bombe = false;
-                     lf.panel.add(lf.block[i][j]);
-                 }
-                 else {
-                	 /* zerstšrbarer Block */
-                     lf.block[i][j] = new Block(lf.breakablefield);
-                     lf.block[i][j].destroyable = true;
-                     lf.block[i][j].walkable = false;
-                     lf.block[i][j].fin = false;
-                     lf.block[i][j].bombe = false;
-                     lf.panel.add(lf.block[i][j]);                            
-                 }
-
-         }
- }   
+     
+    Spielfeld sf = new Spielfeld();
+    sf.zeichneFeld(lf, "field.txt");
+    
 	 /* Bomberman aufs Spielfeld setzen: */
      lf.block[1][1].setIcon(lf.bomberman); 
      lf.frame.add(lf.panel);
