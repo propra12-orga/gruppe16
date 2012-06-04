@@ -7,7 +7,6 @@ public class SirBomberman implements KeyListener {
 	public LaunchFrame lf = new LaunchFrame();
 	
 	public static void main(String[] args) {
-		/* erstelle Instanz von SirBomberman */
         SirBomberman game = new SirBomberman();
         game.launchFrame(); 
     }

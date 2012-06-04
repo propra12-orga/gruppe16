@@ -10,6 +10,8 @@ public class Check {
     public void check(LaunchFrame la) {
     	lf=la;
     	System.out.println("Ausgange gefunden: "+lf.block[lf.bombix][lf.bombiy].fin);
+    	System.out.println("Bombe auf feld: " + lf.block[lf.bombix][lf.bombiy].bombe);
+
         if (lf.block[lf.bombix][lf.bombiy].fin == true) {
         	lf.spielende=true;
         System.out.println(lf.block[lf.bombix][lf.bombiy].fin);

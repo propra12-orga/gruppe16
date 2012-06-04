@@ -1,7 +1,6 @@
 package bomberman;
 
 import java.awt.GridLayout;
-import java.util.Timer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -36,11 +35,12 @@ public class LaunchFrame {
 	public int y;
 	public Boolean baktiv =false;
 	public Boolean[][] exploaktiv = new Boolean[11][11];
-	public Timer[][] timer = new Timer[11][11]; //mehrdimesnional machen??
-	public Timer[][] timer2 = new Timer[11][11];
+	//public Timer[][] timer = new Timer[11][11]; //mehrdimesnional machen??
+	//public Timer[][] timer2 = new Timer[11][11];
     public int input;
     public Boolean spielende=false;
-	int i;      
+	public Boolean anderebombe=false;
+    int i;      
 	private LaunchFrame lf;
 
 public LaunchFrame() {

@@ -16,17 +16,22 @@ class Explosion extends Thread {
 		
 	}
 	public void run() {
-		
+		if(lf.anderebombe==false){
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-
+		}
+		else if (lf.anderebombe==true){
+			lf.anderebombe=false;
+			}
 		Kill k = new Kill();
+
 		boolean noproblem=false;
 		int d=0;
+		if(lf.block[ex][ey].bombe==true){
 		for(int j=-2; j<=2; j++){
 			if(j!=0){
 				if(j==2||j==-2){
@@ -44,11 +49,19 @@ class Explosion extends Thread {
 
 				
 					if(lf.block[ex+j][ey].bombe==true){
-			    		lf.block[ex+j][ey].bombe=false;
-			    		System.out.println("Weitere Bombe auf " + ex+j + "|" + ey + " gefunden.");
+			    		int exj = ex+j;
+			    		System.out.println("Weitere Bombe auf " + exj + "|" + ey + " gefunden.");
+			    		lf.anderebombe = true;
+	    	    		//
+
+	    	    		Explosion explox = new Explosion(lf,ex+j,ey);
+	    	    		explox.start();
+
+
 					}
 				}	
-			}}
+			}}}
+		if(lf.block[ex][ey].bombe==true){
 
 		for(int j=-2; j<=2; j++){
 			if(j!=0){
@@ -66,92 +79,36 @@ class Explosion extends Thread {
 				loe.start();
 
 				if(lf.block[ex][ey+j].bombe==true){
-		    		lf.block[ex][ey+j].bombe=false;
-		    		System.out.println("Weitere Bombe auf " + ex + "|" + ey+j + " gefunden.");
-				}
+
+		    		int eyj = ey+j;
+		    		System.out.println("Weitere Bombe auf " + ex + "|" + eyj + " gefunden.");
+		    		lf.anderebombe = true;
+
+    	    		Explosion exploy = new Explosion(lf,ex,ey+j);
+    	    		exploy.start();
+
+				}    	    		
+
 				
 			}	
-	}}
+	}}}
+		if(lf.block[ex][ey].bombe==true){
+
+		//feld auf dem bombe ist soll auch tšten:
+		lf.exploaktiv[ex][ey]=true;
+		k.killplayer(lf,ex,ey);
+		Loeschen loer = new Loeschen(ex,ey,lf);
+		loer.start();
+		lf.block[ex][ey].bombe=false;
+
+		}
 
 		
 		
 		
 	
-	/*if(lf.block[ex+1][ey].destroyable==true) { //bombe 1unten
-	lf.block[ex+1][ey].setIcon(lf.explo);
-	lf.exploaktiv[ex+1][ey]=true;
-	k.killplayer(lf,ex+1,ey);
-		lf.timer2.schedule(new Loeschen(ex+1,ey, lf), 1000);
-		if(lf.block[ex+1][ey].bombe==true){
-			System.out.println("Weitere Bombe gezŸndet.");
-			lf.timer.cancel();
-    		lf.timer2.schedule(new Explosion(lf,ex+1,ey), 0);  
-    		lf.block[ex+1][ey].bombe=false;
 
-		}
-	}
-	if(lf.block[ex-1][ey].destroyable==true) { //bombe 1oben
-		lf.block[ex-1][ey].setIcon(lf.explo);
-		lf.exploaktiv[ex-1][ey]=true;
-		k.killplayer(lf,ex-1,ey);
 
-		lf.timer2.schedule(new Loeschen(ex-1,ey,lf), 1000);  	
-	}
-	if(ex+2<lf.block.length && lf.block[ex+1][ey].destroyable==true && lf.block[ex+2][ey].destroyable==true) { //bombe 2unten
-		lf.block[ex+2][ey].setIcon(lf.explo);
-		lf.exploaktiv[ex+2][ey]=true;
-		k.killplayer(lf,ex+2,ey);
-
-		lf.timer2.schedule(new Loeschen(ex+2,ey,lf), 1000);  	
-	}
-	if(ex-2<lf.block.length && lf.block[ex-1][ey].destroyable==true && lf.block[ex-2][ey].destroyable==true) { //bombe 2oben
-		lf.block[ex-2][ey].setIcon(lf.explo);
-		lf.exploaktiv[ex-2][ey]=true;
-		k.killplayer(lf,ex-2,ey);
-
-		lf.timer2.schedule(new Loeschen(ex-2,ey,lf), 1000);  	
-	}
-	if(lf.block[ex][ey+1].destroyable==true) { //bombe 1rechts
-		lf.block[ex][ey+1].setIcon(lf.explo);
-		lf.exploaktiv[ex][ey+1]=true;
-		k.killplayer(lf,ex,ey+1);
-
-		lf.timer2.schedule(new Loeschen(ex,ey+1,lf), 1000);  	
-
-	}
-	if(lf.block[ex][ey-1].destroyable==true) { //bombe 1links
-		lf.block[ex][ey-1].setIcon(lf.explo);
-		lf.exploaktiv[ex][ey-1]=true;
-		k.killplayer(lf,ex,ey-1);
-
-		lf.timer2.schedule(new Loeschen(ex,ey-1,lf), 1000);  	
-
-	}
-	if(ey+2<lf.block.length && lf.block[ex][ey+1].destroyable==true && lf.block[ex][ey+2].destroyable==true) { //bombe 2rechts
-		lf.block[ex][ey+2].setIcon(lf.explo);
-		lf.exploaktiv[ex][ey+2]=true;
-		k.killplayer(lf,ex,ey+2);
-
-		lf.timer2.schedule(new Loeschen(ex,ey+2,lf), 1000);  	
-
-	}
-	if(ey-2<lf.block.length && lf.block[ex][ey-1].destroyable==true && lf.block[ex][ey-2].destroyable==true) { //bombe 2links
-		lf.block[ex][ey-2].setIcon(lf.explo);
-		lf.exploaktiv[ex][ey-2]=true;
-		k.killplayer(lf,ex,ey-2);
-
-		lf.timer2.schedule(new Loeschen(ex,ey-2,lf), 1000);  	
-
-	}*/
-	//feld auf dem bombe ist soll auch tšten:
-	lf.exploaktiv[ex][ey]=true;
-	k.killplayer(lf,ex,ey);
-	Loeschen loe = new Loeschen(ex,ey,lf);
-	loe.start();
-
-	/*lf.timer[ex][ey] = new Timer();
-	lf.timer[ex][ey].schedule(new Loeschen(ex,ey,lf), 1000);  //bombe selber
-	lf.block[ex][ey].bombe=false;*/
 	}
 }
 

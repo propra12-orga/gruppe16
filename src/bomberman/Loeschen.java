@@ -12,15 +12,18 @@ class Loeschen extends Thread {
 			lf = la;
 		}
 		public void run() { 
+
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			if(lf.block[lf.bombix][lf.bombiy]!=lf.block[neux][neuy]) {lf.block[neux][neuy].setIcon(lf.field);}
-			lf.block[neux][neuy].walkable=true;
+			if(lf.block[lf.bombix][lf.bombiy]!=lf.block[neux][neuy]) {lf.block[neux][neuy].setIcon(lf.field);
+			//
+			}
 			lf.exploaktiv[neux][neuy]=false;
+
+			lf.block[neux][neuy].walkable=true;
 	}
 }
