@@ -23,7 +23,9 @@ public ImageIcon unbreakablefield;
 public ImageIcon breakablefield;
 public ImageIcon field;
 public ImageIcon finpic;
+public ImageIcon hiddenfinpic;
 public JFrame frame;
+public Boolean schreiberfolg=false;
 public JPanel panel;
 public Feld label[][] = new Feld[11][11];
 public MouseListener l[][] = new MouseListener[11][11];
@@ -34,6 +36,7 @@ public FieldCreator(){
     breakablefield = new ImageIcon( this.getClass().getResource("/dateien/breakable.png"));
     field = new ImageIcon( this.getClass().getResource("/dateien/field.png"));
     finpic = new ImageIcon( this.getClass().getResource("/dateien/end field.png"));
+    hiddenfinpic = new ImageIcon( this.getClass().getResource("/dateien/hiddenendfield.png"));
 
 	frame = new JFrame("Spielfeld-Ersteller für Bomberman");
 	panel = new JPanel();
@@ -85,19 +88,29 @@ public FieldCreator(){
 						case '0':
 							label[ix][iy].state = '1';
 							label[ix][iy].setIcon(field);
+							System.out.println(label[ix][iy].state);
 							break;
 						case '1':
 							label[ix][iy].state = '2';
 							label[ix][iy].setIcon(breakablefield);
+							System.out.println(label[ix][iy].state);
 							break;
 						case '2':
 							label[ix][iy].state = 'f';
 							label[ix][iy].setIcon(finpic);
+							System.out.println(label[ix][iy].state);
 							break;
 						case 'f':
+							label[ix][iy].state = 'h';
+							label[ix][iy].setIcon(hiddenfinpic);
+							System.out.println(label[ix][iy].state);
+							break;
+						case 'h':
 							label[ix][iy].state = '0';
 							label[ix][iy].setIcon(unbreakablefield);
+							System.out.println(label[ix][iy].state);
 							break;
+
 						}
 
 						System.out.println("Mouse clicked "); 
@@ -136,6 +149,10 @@ public FieldCreator(){
 					{		
 					    FileWriterExample fw = new FileWriterExample();
 					    fw.schreiben();
+					    if(schreiberfolg){
+					    	JOptionPane.showMessageDialog(frame, "Spielfeld erfolgreich in Datei geschrieben.");
+					    	schreiberfolg = false;
+					    }
 
 					}
 				});
@@ -171,6 +188,7 @@ class FileWriterExample {
 	       
 	       // Schließt den Stream
 	       writer.close();
+	       schreiberfolg=true;
 	    } catch (IOException e) {
 	      e.printStackTrace();
 	    }
@@ -179,5 +197,6 @@ class FileWriterExample {
 
 public static void main(String[] args){
 	new FieldCreator();
+	
 }
 }

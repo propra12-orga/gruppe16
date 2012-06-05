@@ -86,6 +86,14 @@ public class Spielfeld {
    		lf.block[sx][sy].bombe = false;
    		lf.panel.add(lf.block[sx][sy]);             
    		break;
+   	case 'h': //verstecktes zielfeld
+   		lf.block[sx][sy] = new  Block(lf.breakablefield);
+   		lf.block[sx][sy].destroyable = true;
+   		lf.block[sx][sy].walkable = false;
+   		lf.block[sx][sy].fin = true;
+   		lf.block[sx][sy].bombe = false;
+   		lf.panel.add(lf.block[sx][sy]);             
+   		break;
 
 
    	}
