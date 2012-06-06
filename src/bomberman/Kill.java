@@ -12,13 +12,16 @@ public class Kill {
 		ex = x;
 		ey = y;
 		lf = la;
-		if(lf.exploaktiv[ex][ey]==true && lf.bombix==ex && lf.bombiy==ey) // wenn player bei explosion dort steht
+		if(lf.exploaktiv[ex][ey]==true && ((lf.bombix==ex && lf.bombiy==ey) ||(lf.bombax==ex && lf.bombay==ey))) // wenn player bei explosion dort steht
 		{	
 
 			System.out.println("Bei Bombe stehengeblieben.");
   		   ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
+  		   if(lf.bombix==ex && lf.bombiy==ey){
+		lf.block[lf.bombix][lf.bombiy].setIcon(tot);}
+  		   else if(lf.bombax==ex && lf.bombay==ey){
+		lf.block[lf.bombax][lf.bombay].setIcon(tot);}
 
-		lf.block[lf.bombix][lf.bombiy].setIcon(tot);
 			lf.spielende=true;
 			//lf.timer.cancel(); //explosionstimer canceln, damit die volle sekunde das kreuz angezeigt wird
 			/*lf.timer = new Timer();

@@ -18,10 +18,10 @@ public class Tasten {
 	        System.out.println(lf.input);
 	        if(lf.spielende==false){ // darf man noch laufen?
 	        if(lf.input==39 && lf.block[lf.bombix][lf.bombiy+1].walkable==true) { //rechts
-	    		if(lf.baktiv==true) {
+	    		if(lf.baktiv[lf.bombix][lf.bombiy]==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
 	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
-	    			lf.baktiv=false;
+	    			lf.baktiv[lf.bombix][lf.bombiy]=false;
 	    		}
 	    		else {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.field);
@@ -31,10 +31,10 @@ public class Tasten {
 	    		ch.check(lf);
 	    	}
 	        if(lf.input==37 && lf.block[lf.bombix][lf.bombiy-1].walkable==true) { //links
-	    		if(lf.baktiv==true) {
+	    		if(lf.baktiv[lf.bombix][lf.bombiy]==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
 	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
-	    			lf.baktiv=false;
+	    			lf.baktiv[lf.bombix][lf.bombiy]=false;
 
 	    		}
 	    		else {
@@ -45,10 +45,10 @@ public class Tasten {
 	    		ch.check(lf);
 	    	}
 	        if(lf.input==38 && lf.block[lf.bombix-1][lf.bombiy].walkable==true) { //oben
-	    		if(lf.baktiv==true) {
+	    		if(lf.baktiv[lf.bombix][lf.bombiy]==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
 	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
-	    			lf.baktiv=false;
+	    			lf.baktiv[lf.bombix][lf.bombiy]=false;
 
 	    		}
 	    		else {
@@ -59,10 +59,10 @@ public class Tasten {
 	    		ch.check(lf);
 	    	}
 	        if(lf.input==40 && lf.block[lf.bombix+1][lf.bombiy].walkable==true) { //unten
-	    		if(lf.baktiv==true) {
+	    		if(lf.baktiv[lf.bombix][lf.bombiy]==true) {
 	    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
 	    			lf.block[lf.bombix][lf.bombiy].walkable=false;
-	    			lf.baktiv=false;
+	    			lf.baktiv[lf.bombix][lf.bombiy]=false;
 
 	    		}
 	    		else {
@@ -73,14 +73,11 @@ public class Tasten {
 	    		ch.check(lf);
 	    	}
 	    	    	if(lf.input==32) { // BOMBE wenn leerzeichen gedrückt
-	    	    		//lf.timer = new Timer();
 	    	    		lf.bombex = lf.bombix;
 	    	    		lf.bombey = lf.bombiy; // das muss hier hin, damit die explosion nicht "mitläuft"
-	    	    		lf.baktiv = true;
+	    	    		lf.baktiv[lf.bombex][lf.bombey] = true;
 	    	    		lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombermano2);  //icon bombi+bombe im hintergrund 
 	    	    		lf.block[lf.bombix][lf.bombiy].bombe=true;
-	    	    		/*lf.timer[lf.bombex][lf.bombey] = new Timer();*/
-	    	    		/*lf.timer[lf.bombex][lf.bombey].schedule(*/
 	    	    		Explosion explos = new Explosion(lf,lf.bombex,lf.bombey);
 	    	    		explos.start();
 	    	    	}
@@ -90,15 +87,12 @@ public class Tasten {
 	        if (lf.spielende==true && lf.input==78) {System.exit(0);}
 	        else if (lf.spielende==true && lf.input==89) 
 	        { 
-	        	/*
-	        	for (int k=0; k<=10; k++){
-	        		for (int l=0; l<=10; l++){
-	        				if(lf.timer[k][l]!=null){lf.timer[k][l].cancel();}
-	        				if(lf.timer2[k][l]!=null){lf.timer2[k][l].cancel();}
-	        		}
-	        		}*/
 	        	
-	        	lf.frame.dispose();SirBomberman bombe = new SirBomberman();bombe.launchFrame(); lf.spielende=false;}
+	        	lf.frame.dispose();
+	        	SirBomberman bombe = new SirBomberman();
+	        	bombe.launchFrame();
+	        	lf.spielende=false;
+	        	}
 	    }
 	    
 }

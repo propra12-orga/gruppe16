@@ -19,9 +19,15 @@ class Loeschen extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(lf.block[lf.bombix][lf.bombiy]!=lf.block[neux][neuy] && lf.block[neux][neuy].fin!=true) {lf.block[neux][neuy].setIcon(lf.field);
-			//
+			if(lf.block[lf.bombix][lf.bombiy]!=lf.block[neux][neuy] && lf.block[lf.bombax][lf.bombay]!=lf.block[neux][neuy] && lf.block[neux][neuy].fin!=true) {
+				lf.block[neux][neuy].setIcon(lf.field);
+			
 			}
+			/*if(lf.block[lf.bombax][lf.bombay]!=lf.block[neux][neuy] && lf.block[neux][neuy].fin!=true) {
+				lf.block[neux][neuy].setIcon(lf.field);
+			
+			}*/
+
 			if(lf.block[neux][neuy].fin==true){
 				lf.block[neux][neuy].setIcon(lf.finpic);
 			}

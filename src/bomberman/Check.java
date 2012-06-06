@@ -12,7 +12,7 @@ public class Check {
     	System.out.println("Ausgange gefunden: "+lf.block[lf.bombix][lf.bombiy].fin);
     	System.out.println("Bombe auf feld: " + lf.block[lf.bombix][lf.bombiy].bombe);
 
-        if (lf.block[lf.bombix][lf.bombiy].fin == true) {
+        if (lf.block[lf.bombix][lf.bombiy].fin == true || lf.block[lf.bombax][lf.bombay].fin == true) {
         	lf.spielende=true;
         System.out.println(lf.block[lf.bombix][lf.bombiy].fin);
         Ende en = new Ende(lf, "treppe");
@@ -29,6 +29,19 @@ public class Check {
     	        en.start();
 
     		}
+    		
+    		else if(lf.exploaktiv[lf.bombax][lf.bombay]!=null && lf.exploaktiv[lf.bombax][lf.bombay]==true) {
+
+    			System.out.println("In Explosion gelaufen.");
+      		   ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
+
+    			lf.block[lf.bombax][lf.bombay].setIcon(tot);
+    			lf.spielende=true;
+    	        Ende en = new Ende(lf, "bombe");
+    	        en.start();
+
+    		}
+
     }
     
     

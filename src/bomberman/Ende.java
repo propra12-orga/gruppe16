@@ -16,6 +16,7 @@ public void run(){
     	if(sf.equals("bombe")){
     	try {
 			Thread.sleep(800);
+			System.out.println("habe gewartet");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

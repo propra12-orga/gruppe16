@@ -32,6 +32,9 @@ public class SirBomberman implements KeyListener {
     public void keyPressed(KeyEvent e) {
     	Tasten t = new Tasten();
     	t.abfragen(lf, e);
+    	Tasten2 t2 = new Tasten2();
+    	t2.abfragen(lf, e);
+
     }
     
     
