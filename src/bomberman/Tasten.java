@@ -7,6 +7,11 @@ public class Tasten {
 	public KeyEvent e;
 	public Check ch;
 	
+    boolean f1=false;
+    boolean l1=false;
+    boolean a1=false;
+    boolean d1=false;
+    boolean d2=false;
 
 	
 	 public void abfragen(LaunchFrame la, KeyEvent ke) {
@@ -83,8 +88,27 @@ public class Tasten {
 	    	    	}
 	        }
 
+	        
+	        
+	        /* Bonuslevel fladd */
+	        if(lf.input==70) {f1=true;System.out.println(f1);}
+	        if(lf.input==76) {l1=true;System.out.println(l1);}
+	        if(lf.input==65) {a1=true;System.out.println(a1);}
+	        if(lf.input==68 && d1) {d2=true;System.out.println(d2);}
+	        if(lf.input==68) {d1=true;System.out.println(d1);}
+	        
+	        if(f1 && l1 && a1 && d1 && d2){
+	        	new Fladd();
+	        	f1=false;l1=false;a1=false;d1=false;d2=false;
+	        }
+	        
+	        /* ENDE Bonuslevel fladd */
+
+	        
 	        // SPIEL ENDE?
 	        if (lf.spielende==true && lf.input==78) {System.exit(0);}
+
+	        
 	        else if (lf.spielende==true && lf.input==89) 
 	        { 
 	        	
@@ -93,6 +117,7 @@ public class Tasten {
 	        	bombe.launchFrame();
 	        	lf.spielende=false;
 	        	}
+	        
 	    }
 	    
 }

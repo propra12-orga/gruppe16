@@ -4,6 +4,9 @@ import javax.swing.*;
 
 import bomberman.LaunchFrame;
 public class SirBomberman implements KeyListener {
+	Tasten t = new Tasten();
+	Tasten2 t2 = new Tasten2();
+
 	public LaunchFrame lf = new LaunchFrame();
 	
 	public static void main(String[] args) {
@@ -19,6 +22,7 @@ public class SirBomberman implements KeyListener {
     	/* JFrame erzeugen */
     	lf.frame = new JFrame("SirBomberman");
         lf.panel = new JPanel();
+
     }
     
     public void launchFrame() {
@@ -30,9 +34,7 @@ public class SirBomberman implements KeyListener {
 
     /* Tastatureingaben abfragen: */
     public void keyPressed(KeyEvent e) {
-    	Tasten t = new Tasten();
     	t.abfragen(lf, e);
-    	Tasten2 t2 = new Tasten2();
     	t2.abfragen(lf, e);
 
     }
