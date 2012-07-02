@@ -171,7 +171,121 @@ public class FieldCreator {
 						    }
 						}
 					});
+		
+		//zufallsgenerator
+		JButton zufall = new JButton("zufall");
+		zufall.addMouseListener(new MouseListener()
+		{
+			public void mouseReleased(MouseEvent e)
+			{
+				//System.out.println("Mouse Released "); 
+			}
+			public void mouseClicked(MouseEvent e)
+			{
+				//System.out.println("Mouse Pressed "); 
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				//System.out.println("Mouse Exited "); 
+			}
+			public void mouseEntered(MouseEvent e)
+			{
+				//System.out.println("Mouse Entered ");
+			}
+			public void mousePressed(MouseEvent e)
+			{		
+				for (int ix=1; ix!=10; ix++){
+					for (int iy=1; iy!=10;iy++){
+					char _zufall;
+					double rand=Math.random();
+					
+					if (rand>= 0   && rand<=0.4) _zufall = '1';
+					else if (rand>= 0.4 && rand<=0.66) _zufall = '0';
+					else if ( rand>= 0.66 && rand<=1) _zufall = '2';
+					else _zufall = 'b';
+						
+					label[ix][iy].state=_zufall;
+
+						switch(label[ix][iy].state){
+						case '1':
+							label[ix][iy].setIcon(field);
+							//System.out.println(label[ix][iy].state);
+							break;
+						case '2':
+							label[ix][iy].setIcon(breakablefield);
+							//System.out.println(label[ix][iy].state);
+							break;
+						case '0':
+							label[ix][iy].setIcon(unbreakablefield);
+							//System.out.println(label[ix][iy].state);
+							break;
+						}
+					}
+				}
+				//Startpositionen freimachen und ausgang in mitte setzen
+				label[1][1].state = '1';
+				label[1][1].setIcon(field);
+				label[2][1].state = '1';
+				label[2][1].setIcon(field);
+				label[1][2].state = '1';
+				label[1][2].setIcon(field);
+				label[9][9].state = '1';
+				label[9][9].setIcon(field);
+				label[8][9].state = '1';
+				label[8][9].setIcon(field);
+				label[9][5].state = '1';
+				label[9][8].setIcon(field);
+				label[5][5].state = 'f';
+				label[5][5].setIcon(finpic);
+			    }
+
+			});
+		
+		
+		//konsistenzpruefung
+		JButton konsistenz = new JButton("konsistenz");
+		konsistenz.addMouseListener(new MouseListener()
+		{
+			public void mouseReleased(MouseEvent e)
+			{
+				//System.out.println("Mouse Released "); 
+			}
+			public void mouseClicked(MouseEvent e)
+			{
+				//System.out.println("Mouse Pressed "); 
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				//System.out.println("Mouse Exited "); 
+			}
+			public void mouseEntered(MouseEvent e)
+			{
+				//System.out.println("Mouse Entered ");
+			}
+			public void mousePressed(MouseEvent e)
+			{	
+				System.out.println("konsistenz AN");
+				
+				//feld einlesen
+				char feldlayout[][] = new char[11][11];
+				
+				for (int xi=0; xi!=11; xi++)
+					for (int yj=0; yj!=11; yj++)
+						feldlayout[xi][yj]=label[xi][yj].state;
+				
+			   //feld einlesen ende
+			   //konsistenz mit den eingelesenen daten prüfen
+			   KonsistenzPr konsistent = new KonsistenzPr(feldlayout);
+			   if (konsistent.konsistent == true) JOptionPane.showMessageDialog(frame, "Das Spielfeld ist konsistent!");
+			   else JOptionPane.showMessageDialog(frame, "Das Spielfeld ist nicht konsistent. "+konsistent.fehler);
+				
+			}
+
+			});
+		
 		panel.add(save);
+		panel.add(zufall);
+		panel.add(konsistenz);
 	    frame.add(panel);
 	    frame.validate();
 	}

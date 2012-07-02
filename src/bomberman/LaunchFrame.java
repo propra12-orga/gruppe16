@@ -19,6 +19,7 @@ public class LaunchFrame {
     public JPanel panel;
     public Boolean networkgame;
     public Boolean auswahldialog;
+    public Boolean musik;
     public Boolean go;
     public Block[][] block = new Block[11][11];
     public Network netz;
@@ -76,6 +77,7 @@ public class LaunchFrame {
 	 * Festlegen der Variableninhalte zu Anfang des Spiels
 	 */
 	public LaunchFrame() {
+		musik=false;
 	    bombix = 1;
 	    bombiy = 1;
 	    bombax = 9;
@@ -141,6 +143,5 @@ public class LaunchFrame {
 	     lf.frame.validate();
 	     System.out.println("gezeichnet");
 
-	
 	}
 }

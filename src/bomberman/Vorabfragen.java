@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 import java.util.regex.*;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -44,7 +45,7 @@ public class Vorabfragen {
         new_dialog.setSize(500,150);
         new_dialog.setLocationRelativeTo(lf.frame);
         new_dialog.setModal(true);
-	    new_dialog.setLayout(new GridLayout(9,1));        
+	    new_dialog.setLayout(new GridLayout(11,1));        
 	    
 	    JRadioButton p1 = new JRadioButton("Ich bin Player 1");
 	    p1.setActionCommand("Ich bin Player 1");
@@ -74,6 +75,9 @@ public class Vorabfragen {
 	    
 	    JRadioButton net1 = new JRadioButton("lokal am Computer spielen");
 	    JRadioButton net2 = new JRadioButton("über Netzwerk spielen");
+		JCheckBox mu1 = new JCheckBox("Musik abspielen");
+		final JCheckBox m1=mu1;
+
 	    ButtonGroup group2 = new ButtonGroup();
 	    group2.add(net1);
 	    group2.add(net2);
@@ -121,6 +125,12 @@ public class Vorabfragen {
 		ActionListener al = new ActionListener() {
 		    public void actionPerformed( ActionEvent e )
 		    {
+		    	
+		   if(m1.isSelected()){
+				lf.musik=true;
+				System.out.println("musik wird abgespielt");
+
+		   }
 		    	
 		    if(s1.isSelected()){
 		    	lf.auswahldialog=false;
@@ -173,6 +183,8 @@ public class Vorabfragen {
 		};
 		txt.addFocusListener(fl);
 		JSeparator jsep = new JSeparator();
+		JSeparator jsep2 = new JSeparator();
+
 		//if(bu.)
 		new_dialog.add(sf1);
         new_dialog.add(sf2);
@@ -188,6 +200,8 @@ public class Vorabfragen {
 		new_dialog.add(t1);
 		new_dialog.add(t2);
         new_dialog.add(new_text);
+        new_dialog.add(jsep2);
+        new_dialog.add(mu1);
 
         new_dialog.add(save);
         

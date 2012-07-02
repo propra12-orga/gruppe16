@@ -26,8 +26,8 @@ public class Spielfeld {
 	
 	public void zeichneFeld(LaunchFrame la){
 		lf = la;
-		file = new File("field.txt");		// todo: Standarddatei in Package lesen. Im Moment muss iene field.txt im gleichen Verzeichnis wie die ausführbare .jar sein
-		
+		//file = new File("field.txt");		// todo: Standarddatei in Package lesen. Im Moment muss iene field.txt im gleichen Verzeichnis wie die ausführbare .jar sein
+		String feldlayout="";
 		if(lf.auswahldialog==true){
 		System.out.println("auswahl true");
 		JFileChooser fc = new JFileChooser();
@@ -71,6 +71,37 @@ public class Spielfeld {
 		        String path = fc.getSelectedFile().getPath();
 
 		        file = new File(path);
+		        FileReader fr = null;
+				try {
+					
+					fr = new FileReader(file);
+					System.out.println(file);
+
+					
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			   BufferedReader br = new BufferedReader(fr);
+			   String line[] = new String[11];
+			   for(int i=0; i<=10; i++){
+			  	 try {
+					line[i] = br.readLine();
+					feldlayout = feldlayout + line[i];
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			   }
+			   try {
+				fr.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		      }
 		//
 		//file = datei;
@@ -78,46 +109,17 @@ public class Spielfeld {
 	}
 		
 		else {
-			file = new File("field.txt");
+			feldlayout="000000000000112222222001020202020022222222200202020202002222f222200202020202002222222220020202020100222222211000000000000"; //standardfeld
 		}
 	    
 	    
-	    if (file==null){		file = new File("field.txt");
+	    if (file==null){
+			feldlayout="000000000000112222222001020202020022222222200202020202002222f222200202020202002222222220020202020100222222211000000000000"; //standardfeld
 }
 	    
-	    String feldlayout = "";
+	   
 
-	    FileReader fr = null;
-		try {
-			
-			fr = new FileReader(file);
-			System.out.println(file);
-
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	   BufferedReader br = new BufferedReader(fr);
-	   String line[] = new String[11];
-	   for(int i=0; i<=10; i++){
-	  	 try {
-			line[i] = br.readLine();
-			feldlayout = feldlayout + line[i];
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	   }
-	   try {
-		fr.close();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
+	    
 	
 	   char[] c = feldlayout.toCharArray();
 	   /*datei auslesen ende*/

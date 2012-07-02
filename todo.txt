@@ -1,5 +1,7 @@
 Todo:
 - Icon bei PlayerÃ¼berlagerung nicht mehr lÃ¶schen
-- Wenn keine Spielfeld-Datei da ist, Standardspielfeld erzeugen
-- Mehrere Spielfelder speichern kÃ¶nnen, mehrere unterschiedliche laden (Dateinamen nicht mehr hardcoden)
-- Angeben, welcher Player gewonnen hat / welcher gestorben ist
+
+gemacht:
+zufallsgenerator: in fieldcreator.java den codeblock für zufall
+konsistenzprüfung: in fieldcreator.java den codeblock für konsistenz
+					  konsistenzpr.java
