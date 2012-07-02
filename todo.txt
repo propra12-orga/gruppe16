@@ -1,0 +1,5 @@
+Todo:
+- Icon bei Playerüberlagerung nicht mehr löschen
+- Wenn keine Spielfeld-Datei da ist, Standardspielfeld erzeugen
+- Mehrere Spielfelder speichern können, mehrere unterschiedliche laden (Dateinamen nicht mehr hardcoden)
+- Angeben, welcher Player gewonnen hat / welcher gestorben ist
