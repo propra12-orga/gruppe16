@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-
 import javax.swing.JFileChooser;
 
 /**
@@ -28,12 +26,8 @@ public class Spielfeld {
 	
 	public void zeichneFeld(LaunchFrame la){
 		lf = la;
-		try {
-			file = new File(this.getClass().getResource("/dateien/field.txt" ).toURI());
-		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		file = new File("field.txt");		// todo: Standarddatei in Package lesen. Im Moment muss iene field.txt im gleichen Verzeichnis wie die ausführbare .jar sein
+		
 		if(lf.auswahldialog==true){
 		System.out.println("auswahl true");
 		JFileChooser fc = new JFileChooser();
@@ -84,21 +78,11 @@ public class Spielfeld {
 	}
 		
 		else {
-			try {
-				file = new File(this.getClass().getResource("/dateien/field.txt" ).toURI());
-			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			file = new File("field.txt");
 		}
 	    
 	    
-	    if (file==null){		try {
-			file = new File(this.getClass().getResource("/dateien/field.txt" ).toURI());
-		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	    if (file==null){		file = new File("field.txt");
 }
 	    
 	    String feldlayout = "";
