@@ -22,13 +22,17 @@ public class Kill {
 		ex = x;
 		ey = y;
 		lf = la;
+<<<<<<< HEAD
 		Ende el;
+=======
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 		if(lf.exploaktiv[ex][ey]==true && ((lf.bombix==ex && lf.bombiy==ey) ||(lf.bombax==ex && lf.bombay==ey))) { 
 			// wenn player bei explosion dort steht
 			System.out.println("Bei Bombe stehengeblieben.");
   		    ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
   		    if(lf.bombix==ex && lf.bombiy==ey) {
   		    	lf.block[lf.bombix][lf.bombiy].setIcon(tot);
+<<<<<<< HEAD
   		    	/*wenn Player1 stirbt: Siegbild fuer pl2 initialisieren*/
   		    	lf.spielende=true;
   	  		    el = new Ende(lf, "bombepl1");
@@ -40,6 +44,15 @@ public class Kill {
   			   el = new Ende(lf, "bombepl2");
   		   }
   		   else el = null;
+=======
+  		    }
+  		   else if(lf.bombax==ex && lf.bombay==ey) {
+  			   lf.block[lf.bombax][lf.bombay].setIcon(tot);
+  		   }
+
+  		    lf.spielende=true;
+  		    Ende el = new Ende(lf, "bombe");
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
   		    el.start();
 		}
 	}

@@ -1,9 +1,12 @@
 package bomberman;
 import java.awt.event.KeyEvent;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+=======
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 
 /**
  * Tastenauswertung Player1
@@ -22,6 +25,7 @@ public class Tasten {
     boolean a1=false;
     boolean d1=false;
     boolean d2=false;
+<<<<<<< HEAD
     
     
     public void restartApplication()
@@ -61,6 +65,8 @@ public class Tasten {
 	}
       System.exit(0);
     }
+=======
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 
 	/**
 	 * Abfragen, welche Taste gedrückt wurde, weiterverarbeiten 
@@ -72,6 +78,7 @@ public class Tasten {
 			e = ke;
 			ch = new Check();
 
+<<<<<<< HEAD
 			if(!lf.networkgame) {
 				lf.input=e.getKeyCode();
 			}
@@ -86,6 +93,12 @@ public class Tasten {
 			
 	        System.out.println(lf.input);
 	        if(lf.spielende==false){ // darf man noch laufen?
+=======
+	    	lf.input=e.getKeyCode();
+	        System.out.println(lf.input);
+	        if(lf.spielende==false){ // darf man noch laufen?
+	       
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	        	if(lf.input==39 && lf.block[lf.bombix][lf.bombiy+1].walkable==true) { //rechts
 		    		if(lf.baktiv[lf.bombix][lf.bombiy]==true) {
 		    			lf.block[lf.bombix][lf.bombiy].setIcon(lf.bombe);
@@ -178,6 +191,7 @@ public class Tasten {
 	        
 	        else if (lf.spielende==true && lf.input==89) 
 	        { 
+<<<<<<< HEAD
 	        	restartApplication();
 	        }
 	    }  
@@ -270,3 +284,12 @@ public class Tasten {
 		        }
 	        }
 }}
+=======
+	        	lf.frame.dispose();
+	        	SirBomberman bombe = new SirBomberman();
+	        	bombe.launchFrame();
+	        	lf.spielende=false;
+	        }
+	    }  
+}
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29

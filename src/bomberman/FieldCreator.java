@@ -192,6 +192,7 @@ public class FieldCreator {
 		   * schreibe states der einzelnen Felder in <i>field.txt</i>
 		   */
 		  public void schreiben(){
+<<<<<<< HEAD
 			  // Filechooser, damit man Dateien einzeln Speichern kann und nicht nur auf eine einzige Karte hat!
 			  // erst Filechooser erstellen und dann als save-dialog deklarieren
 			  
@@ -215,6 +216,13 @@ public class FieldCreator {
 			  
 		     try {
 		       writer = new FileWriter(file);
+=======
+		    // File anlegen
+		     file = new File("field.txt");
+		     try {
+		       writer = new FileWriter(file);
+		       
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 		       for(int k=0; k<=10; k++){
 		    	   for(int m=0; m<=10; m++){
 		    		   writer.write(label[k][m].state);
@@ -222,6 +230,7 @@ public class FieldCreator {
 			       writer.write(System.getProperty("line.separator"));
 		       }
 		       
+<<<<<<< HEAD
 		       
 		       
 		       // Schreibt den Stream in die Datei
@@ -231,11 +240,28 @@ public class FieldCreator {
 		       
 		       // Schließt den Stream
 		       writer.close();
+=======
+		       // Schreibt den Stream in die Datei
+		       // Sollte immer am Ende ausgeführt werden, sodass der Stream 
+		       // leer ist und alles in der Datei steht.
+		       
+		       writer.flush();
+		       
+		       // Schließt den Stream
+		       
+		       writer.close();
+		       
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 		       schreiberfolg=true;
 		    } catch (IOException e) {
 		      e.printStackTrace();
 		    }
+<<<<<<< HEAD
 		  }}
+=======
+		  }
+	}
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	
 	/**
 	 * rufe Konstruktor auf

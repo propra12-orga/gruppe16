@@ -24,6 +24,7 @@ public class Tasten2 {
 			lf = la;
 			e = ke;
 			ch = new Check();
+<<<<<<< HEAD
 			if(!lf.networkgame) {
 				lf.input=e.getKeyCode();
 			}
@@ -125,6 +126,10 @@ public class Tasten2 {
 				lf.input=lf.anweisung;
 			}
 
+=======
+
+	    	lf.input=e.getKeyCode();
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	        System.out.println(lf.input);
 	        if(lf.spielende==false){ // darf man noch laufen?
 		       
@@ -194,5 +199,9 @@ public class Tasten2 {
 		    	    explos.start();
 		        }
 	        }	    
+<<<<<<< HEAD
 	    }   
+=======
+	    }    
+>>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 }
