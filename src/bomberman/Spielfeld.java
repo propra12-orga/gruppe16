@@ -1,6 +1,5 @@
 package bomberman;
 import java.io.BufferedReader;
-<<<<<<< HEAD
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,11 +8,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import javax.swing.JFileChooser;
-=======
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 
 /**
  * Spielfeld zeichnen
@@ -24,11 +18,7 @@ import java.io.IOException;
 
 public class Spielfeld {
 	private LaunchFrame lf;
-<<<<<<< HEAD
 	private File file;
-=======
-	private String file;
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	
 /**
  * Spielfeld aus Datei lesen und zeichnen
@@ -36,7 +26,6 @@ public class Spielfeld {
  * @param datei Datei aus der gelesen wird
  */
 	
-<<<<<<< HEAD
 	public void zeichneFeld(LaunchFrame la){
 		lf = la;
 		try {
@@ -120,18 +109,6 @@ public class Spielfeld {
 			fr = new FileReader(file);
 			System.out.println(file);
 
-=======
-	public void zeichneFeld(LaunchFrame la, String datei){
-		lf = la;
-		file = datei;
-		
-		 /* Datei auslesen */
-		
-	    String feldlayout = "";
-	    FileReader fr = null;
-		try {
-			fr = new FileReader(file);
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -143,20 +120,12 @@ public class Spielfeld {
 	  	 try {
 			line[i] = br.readLine();
 			feldlayout = feldlayout + line[i];
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	   }
 	   try {
 		fr.close();
@@ -164,10 +133,7 @@ public class Spielfeld {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	
 	   char[] c = feldlayout.toCharArray();
 	   /*datei auslesen ende*/

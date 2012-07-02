@@ -37,11 +37,7 @@ public class Check {
       		ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
     		lf.block[lf.bombix][lf.bombiy].setIcon(tot);
     		lf.spielende=true;
-<<<<<<< HEAD
     	    Ende en = new Ende(lf, "bombepl1");
-=======
-    	    Ende en = new Ende(lf, "bombe");
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
     	    en.start();
     	}
     	
@@ -52,11 +48,7 @@ public class Check {
       		ImageIcon tot = new ImageIcon(  this.getClass().getResource("/dateien/tot2.gif" ));
     		lf.block[lf.bombax][lf.bombay].setIcon(tot);
     		lf.spielende=true;
-<<<<<<< HEAD
     	    Ende en = new Ende(lf, "bombepl2");
-=======
-    	    Ende en = new Ende(lf, "bombe");
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
     	    en.start();
     	}
     }

@@ -1,11 +1,8 @@
 package bomberman;
 
 import java.awt.GridLayout;
-<<<<<<< HEAD
 import java.net.DatagramSocket;
 
-=======
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +14,6 @@ import javax.swing.JPanel;
  *  */
 
 public class LaunchFrame {
-<<<<<<< HEAD
 	public DatagramSocket socket;
     public JFrame frame;
     public JPanel panel;
@@ -32,14 +28,6 @@ public class LaunchFrame {
     public Tasten2 t2;
     public int playernr;
     public String ip;
-=======
-    public JFrame frame;
-    public JPanel panel;
-    public Block[][] block = new Block[11][11];
-    public ImageIcon bomberman;
-    public ImageIcon bomberman2;
-
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
     public ImageIcon bombe;
     public ImageIcon tot;
     public ImageIcon unbreakablefield;
@@ -61,7 +49,6 @@ public class LaunchFrame {
     public ImageIcon bombermanu2;
     public ImageIcon bombermano2;
     public ImageIcon bombermanl2;
-<<<<<<< HEAD
     public ImageIcon end_bombepl1;
     public ImageIcon end_bombepl2;
 
@@ -69,10 +56,6 @@ public class LaunchFrame {
     public ImageIcon end_game;
     public ImageIcon end_bombe;
     public int anweisung;
-=======
-    public ImageIcon end_game;
-    public ImageIcon end_bombe;
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	public int bombix; //position x von bomberman
 	public int bombiy; //position y von bomberman
 	public int bombax; //position x von bomberm�dchen
@@ -89,10 +72,6 @@ public class LaunchFrame {
 	public Boolean anderebombe=false;
     int i;      
 	private LaunchFrame lf;
-<<<<<<< HEAD
-=======
-
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	/**
 	 * Festlegen der Variableninhalte zu Anfang des Spiels
 	 */
@@ -101,13 +80,9 @@ public class LaunchFrame {
 	    bombiy = 1;
 	    bombax = 9;
 	    bombay = 9;
-<<<<<<< HEAD
 	    anweisung=0;
 	    go=true;
 	    ip="";
-=======
-	    
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	    for(int t=0; t<=10; t++){for(int r=0; r<=10; r++){baktiv[t][r]=false;}}
 	    
 	    unbreakablefield = new ImageIcon( this.getClass().getResource("/dateien/unbreakable.png"));
@@ -127,17 +102,12 @@ public class LaunchFrame {
 	    bomberman2l = new ImageIcon(  this.getClass().getResource("/dateien/bomberman2 links.png" ));
 	    bomberman2r = new ImageIcon(  this.getClass().getResource("/dateien/bomberman2 rechts.png" ));
 	    bomberman2o2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman2 ruecken.png" ));
-<<<<<<< HEAD
-=======
-	
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	    
 	    bombermanu2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman standard.png" ));
 	    bombermano2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman ruecken.png" ));
 	    bombermanl2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman links.png" ));
 	    bombermanr2 = new ImageIcon(  this.getClass().getResource("/dateien/2bomberman rechts.png" ));   
 		end_game = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME.png" ));
-<<<<<<< HEAD
 		end_bombepl1 = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME-bombe_pl2.png" )); //siegbild pl1
 		end_bombepl2 = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME-bombe_pl1.png" )); //siegbild pl2
 
@@ -145,11 +115,6 @@ public class LaunchFrame {
 		tot = new ImageIcon(  this.getClass().getResource("/dateien/tot.gif" ));
 		t = new Tasten();
 		t2 = new Tasten2();
-=======
-		end_bombe = new ImageIcon(  this.getClass().getResource("/dateien/ENDGAME-bombe.png" ));
-		tot = new ImageIcon(  this.getClass().getResource("/dateien/tot.gif" ));
-	
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	    bombe = new ImageIcon(  this.getClass().getResource("/dateien/bombe.png" ));
 	}
 	
@@ -159,34 +124,23 @@ public class LaunchFrame {
 	 */
 	public void spielfeld_malen(LaunchFrame la){
 		 lf = la;
-<<<<<<< HEAD
 		 Spielfeld sf = new Spielfeld();
 	     sf.zeichneFeld(lf);
 	     System.out.println("gezeichnet");
-=======
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	     lf.frame.setLocation(0,0);
 	     lf.frame.setVisible(true);
 	     lf.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	     lf.frame.setSize(660, 660);
 	     lf.panel.setLayout(new GridLayout(11,11));        
 	     
-<<<<<<< HEAD
-=======
-	     Spielfeld sf = new Spielfeld();
-	     sf.zeichneFeld(lf, "field.txt");
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	    
 		 /* Bomberman aufs Spielfeld setzen: */
 	     lf.block[1][1].setIcon(lf.bomberman); 
 	     lf.block[9][9].setIcon(lf.bomberman2); 
 	     lf.frame.add(lf.panel);
 	     lf.frame.validate();
-<<<<<<< HEAD
 	     System.out.println("gezeichnet");
 
-=======
->>>>>>> 4d6066ee247af2e3a6ea389adf8e49e8518dba29
 	
 	}
 }
