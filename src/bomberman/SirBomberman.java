@@ -90,6 +90,8 @@ public class SirBomberman implements KeyListener {
         lf.spielfeld_malen(lf);
         lf.panel.addKeyListener(this);
         lf.panel.requestFocus();
+        lf.startzeit = System.currentTimeMillis();
+        System.out.println(lf.startzeit);
         playMusic();
 
         if(lf.networkgame){

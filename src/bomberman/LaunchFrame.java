@@ -56,6 +56,8 @@ public class LaunchFrame {
 
     public ImageIcon end_game;
     public ImageIcon end_bombe;
+    
+    public long startzeit;
     public int anweisung;
 	public int bombix; //position x von bomberman
 	public int bombiy; //position y von bomberman

@@ -53,7 +53,10 @@ public class Ende extends Thread {
 	    	
 	        lf.frame.add(endpanel);
 	        lf.frame.validate();
-	        
+	        if(sf.equals("treppe")){
+	            Highscore hi = new Highscore();
+	            hi.highscore_frage(lf);
+	        }
     	
 
 		}
