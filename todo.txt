@@ -1,0 +1,7 @@
+Todo:
+- Icon bei PlayerÃ¼berlagerung nicht mehr lÃ¶schen
+
+gemacht:
+zufallsgenerator: in fieldcreator.java den codeblock für zufall
+konsistenzprüfung: in fieldcreator.java den codeblock für konsistenz
+					  konsistenzpr.java
